@@ -21,4 +21,4 @@ npm start
 
 ## Template
 
-Recurso usado de ( WrapPixel)[https://www.wrappixel.com/]
+Recurso usado de [WrapPixel](https://www.wrappixel.com/)
