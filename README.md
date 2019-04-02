@@ -21,4 +21,4 @@ npm start
 
 ## Template
 
-Recurso usado de [Creative Tim](https://www.creative-tim.com/product/light-bootstrap-dashboard-react)
+Recurso usado de ( WrapPixel)[https://www.wrappixel.com/]
