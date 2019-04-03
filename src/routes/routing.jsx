@@ -10,6 +10,30 @@ import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
 
 var ThemeRoutes = [
+  {
+    path: '/buscar',
+    name: 'Buscar Historias',
+    icon: 'mdi mdi-pencil-circle',
+    // añadir componente
+  },
+  {
+    path: '/crear-historia-general',
+    name: 'Crear Historia General',
+    icon: 'mdi mdi-arrange-send-backward'
+    // añadir componente
+  },
+  {
+    path: '/crear-historia-general',
+    name: 'Crear Historia General',
+    icon: 'mdi mdi-priority-high'
+    // añadir componente
+  },
+  {
+    path: '/ajustes-de-perfil',
+    name: 'Ajustes de Perfil',
+    icon: 'mdi mdi-image-filter-vintage'
+    // añadir componente
+  },
   { 
     path: '/dashboard', 
     name: 'Dashboard', 
