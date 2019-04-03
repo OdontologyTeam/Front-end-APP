@@ -1,7 +1,6 @@
 import React from 'react';
 import {
 	Nav,
-	NavItem,
 	Navbar,
 	NavbarBrand,
 	Collapse,
@@ -12,7 +11,7 @@ import {
 	DropdownMenu
 } from 'reactstrap';
 
-import profilephoto from '../../assets/images/users/1.jpg';
+import profilephoto from '../../assets/images/users/8.jpg';
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
@@ -81,9 +80,6 @@ class Header extends React.Component {
 					</div>
 					<Collapse className="navbarbg" isOpen={this.state.isOpen} navbar data-navbarbg="skin1" >
 						<Nav className="ml-auto float-right" navbar>
-							<NavItem>
-								<a href="" className="btn btn-danger mr-2" style={{ marginTop: '15px' }}>Upgrade to Pro</a>
-							</NavItem>
 							{/*--------------------------------------------------------------------------------*/}
 							{/* Start Profile Dropdown                                                         */}
 							{/*--------------------------------------------------------------------------------*/}
@@ -98,28 +94,18 @@ class Header extends React.Component {
 								</DropdownToggle>
 								<DropdownMenu right className="user-dd">
 									<DropdownItem>
-										<i className="ti-user mr-1 ml-1" /> My Account
-                  </DropdownItem>
-									<DropdownItem>
-										<i className="ti-wallet mr-1 ml-1" /> My Balance
-                  </DropdownItem>
-									<DropdownItem>
-										<i className="ti-email mr-1 ml-1" /> Inbox
-                  </DropdownItem>
-									<DropdownItem divider />
-									<DropdownItem>
-										<i className="ti-settings mr-1 ml-1" /> Account Settings
+										<i className="ti-settings mr-1 ml-1" /> Ajustes de cuenta
                   </DropdownItem>
 									<DropdownItem divider />
 									<DropdownItem href="/pages/login">
-										<i className="fa fa-power-off mr-1 ml-1" /> Logout
+										<i className="fa fa-power-off mr-1 ml-1" /> Cerrar Sesión
                   </DropdownItem>
 									<DropdownItem divider />
 									<Button
 										color="success"
 										className="btn-rounded ml-3 mb-2 mt-2"
 									>
-										View Profile
+										Ver Perfil
                   </Button>
 								</DropdownMenu>
 							</UncontrolledDropdown>
