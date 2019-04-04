@@ -23,8 +23,8 @@ var ThemeRoutes = [
     // añadir componente
   },
   {
-    path: '/crear-historia-general',
-    name: 'Crear Historia General',
+    path: '/crear-historia-completa',
+    name: 'Crear Historia Completa',
     icon: 'mdi mdi-priority-high'
     // añadir componente
   },
@@ -34,6 +34,7 @@ var ThemeRoutes = [
     icon: 'mdi mdi-image-filter-vintage'
     // añadir componente
   },
+  // Componentes de ayuda, no borrar hasta que no se necesiten más!
   { 
     path: '/dashboard', 
     name: 'Dashboard', 
