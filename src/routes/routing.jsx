@@ -8,13 +8,15 @@ import LayoutComponent from '../views/ui-components/layout.jsx';
 import PaginationComponent from '../views/ui-components/pagination.jsx';
 import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
+// Componentes
+import Search from '../views/ui-components/search'
 
 var ThemeRoutes = [
   {
     path: '/buscar',
     name: 'Buscar Historias',
     icon: 'mdi mdi-pencil-circle',
-    // añadir componente
+    component: Search
   },
   {
     path: '/crear-historia-general',
