@@ -10,6 +10,7 @@ import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
 // Componentes
 import Search from '../views/ui-components/search'
+import GeneralStory from '../views/ui-components/GeneralStory'
 
 var ThemeRoutes = [
   {
@@ -21,8 +22,8 @@ var ThemeRoutes = [
   {
     path: '/crear-historia-general',
     name: 'Crear Historia General',
-    icon: 'mdi mdi-arrange-send-backward'
-    // añadir componente
+    icon: 'mdi mdi-arrange-send-backward',
+    component: GeneralStory
   },
   {
     path: '/crear-historia-completa',
