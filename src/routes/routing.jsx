@@ -94,6 +94,6 @@ let ThemeRoutes = [
     icon: 'mdi mdi-image-filter-vintage',
     component: TooltipComponent
   },
-  { path: '/', pathTo: '/dashboard', name: 'Dashboard', redirect: true }
+  { path: '/', pathTo: '/buscar', name: 'Buscar Historias', redirect: true }
 ];
 export default ThemeRoutes;
