@@ -11,8 +11,9 @@ import TooltipComponent from '../views/ui-components/tooltip.jsx';
 // Componentes
 import Search from '../views/ui-components/search'
 import GeneralStory from '../views/ui-components/GeneralStory'
+import CompleteStory from '../views/ui-components/CompleteStory'
 
-var ThemeRoutes = [
+let ThemeRoutes = [
   {
     path: '/buscar',
     name: 'Buscar Historias',
@@ -28,8 +29,8 @@ var ThemeRoutes = [
   {
     path: '/crear-historia-completa',
     name: 'Crear Historia Completa',
-    icon: 'mdi mdi-priority-high'
-    // añadir componente
+    icon: 'mdi mdi-priority-high',
+    component: CompleteStory
   },
   {
     path: '/ajustes-de-perfil',
