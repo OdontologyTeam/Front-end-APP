@@ -12,6 +12,7 @@ import TooltipComponent from '../views/ui-components/tooltip.jsx';
 import Search from '../views/ui-components/search'
 import GeneralStory from '../views/ui-components/GeneralStory'
 import CompleteStory from '../views/ui-components/CompleteStory'
+import Profile from '../views/ui-components/Profile'
 
 let ThemeRoutes = [
   {
@@ -35,8 +36,8 @@ let ThemeRoutes = [
   {
     path: '/ajustes-de-perfil',
     name: 'Ajustes de Perfil',
-    icon: 'mdi mdi-image-filter-vintage'
-    // añadir componente
+    icon: 'mdi mdi-image-filter-vintage',
+    component: Profile
   },
   // Componentes de ayuda, no borrar hasta que no se necesiten más!
   { 
