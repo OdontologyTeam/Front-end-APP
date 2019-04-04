@@ -8,32 +8,38 @@ import LayoutComponent from '../views/ui-components/layout.jsx';
 import PaginationComponent from '../views/ui-components/pagination.jsx';
 import PopoverComponent from '../views/ui-components/popover.jsx';
 import TooltipComponent from '../views/ui-components/tooltip.jsx';
+// Componentes
+import Search from '../views/ui-components/search'
+import GeneralStory from '../views/ui-components/GeneralStory'
+import CompleteStory from '../views/ui-components/CompleteStory'
+import Profile from '../views/ui-components/Profile'
 
-var ThemeRoutes = [
+let ThemeRoutes = [
   {
     path: '/buscar',
     name: 'Buscar Historias',
     icon: 'mdi mdi-pencil-circle',
-    // añadir componente
+    component: Search
   },
   {
     path: '/crear-historia-general',
     name: 'Crear Historia General',
-    icon: 'mdi mdi-arrange-send-backward'
-    // añadir componente
+    icon: 'mdi mdi-arrange-send-backward',
+    component: GeneralStory
   },
   {
-    path: '/crear-historia-general',
-    name: 'Crear Historia General',
-    icon: 'mdi mdi-priority-high'
-    // añadir componente
+    path: '/crear-historia-completa',
+    name: 'Crear Historia Completa',
+    icon: 'mdi mdi-priority-high',
+    component: CompleteStory
   },
   {
     path: '/ajustes-de-perfil',
     name: 'Ajustes de Perfil',
-    icon: 'mdi mdi-image-filter-vintage'
-    // añadir componente
+    icon: 'mdi mdi-image-filter-vintage',
+    component: Profile
   },
+  // Componentes de ayuda, no borrar hasta que no se necesiten más!
   { 
     path: '/dashboard', 
     name: 'Dashboard', 
@@ -88,6 +94,6 @@ var ThemeRoutes = [
     icon: 'mdi mdi-image-filter-vintage',
     component: TooltipComponent
   },
-  { path: '/', pathTo: '/dashboard', name: 'Dashboard', redirect: true }
+  { path: '/', pathTo: '/buscar', name: 'Buscar Historias', redirect: true }
 ];
 export default ThemeRoutes;
