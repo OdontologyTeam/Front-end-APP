@@ -10,7 +10,6 @@ import {
   CardBody,
   CardTitle,
   CardHeader,
-  CardText,
   CardFooter,
   Form,
   FormGroup,
@@ -24,14 +23,24 @@ import img8 from '../../assets/images/users/8.jpg';
 
 export default class Search extends Component {
   state = {
-    email: 'Maria'
+    username: 'Maria',
+    email: 'user@yourdomail.com',
+    password: 'YourcurrentPassword',
+    confirmPassword: 'YourcurrentPassword'
   }
 
   handleChangeInput = event => {
+    const targetValue = event.target.value
     this.setState({
-      email: event.target.value
+      username: targetValue,
+      email: targetValue,
+      password: targetValue,
+      confirmPassword: targetValue
     })
+  }
 
+  handleSubmitInput = event => {
+    event.preventDefault()
   }
 
   render() {
@@ -81,15 +90,47 @@ export default class Search extends Component {
               <Card>
                 <CardHeader tag="h5">Cambiar los datos de tu cuenta</CardHeader>
                 <CardBody>
-                  <Form>
-                  <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
-                    <Input type="email" name="email" placeholder="with a placeholder" value={this.state.email} />
-                  </FormGroup>
+                  <Form onSubmit={this.handleSubmitInput}>
+                    <FormGroup>
+                      <Label>Nombre</Label>
+                      <Input 
+                        type="next"   
+                        name="username"
+                        value={this.state.username} 
+                        onChange={this.handleChangeInput}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label>Email</Label>
+                      <Input 
+                        type="email"   
+                        name="email"
+                        value={this.state.email} 
+                        onChange={this.handleChangeInput}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label>Nueva contraseña</Label>
+                      <Input 
+                        type="password"   
+                        name="password"
+                        value={this.state.password} 
+                        onChange={this.handleChangeInput}
+                      />
+                    </FormGroup>
+                    <FormGroup>
+                      <Label>Confirmar contraseña</Label>
+                      <Input 
+                        type="password"   
+                        name="confirmPassword"
+                        value={this.state.confirmPassword} 
+                        onChange={this.handleChangeInput}
+                      />
+                    </FormGroup>
                   </Form>
                 </CardBody>
                 <CardFooter className="text-muted">
-                  <Button>Guardar</Button>
+                  <Button>Guardar cambios</Button>
                 </CardFooter>
               </Card>
             </Container>
