@@ -1,3 +1,6 @@
+/**
+ * @author Andrés Largo <andresf.largo@gmail.com>
+ */
 import React, { Component } from 'react'
 import {
   Card,
@@ -11,7 +14,14 @@ import {
   Label
 } from "reactstrap";
 
+/** 
+ * @public
+ */
 export default class Search extends Component {
+/**
+* @constructs Search
+* @param props
+*/
   constructor(props) {
     super(props);
 
@@ -29,14 +39,11 @@ export default class Search extends Component {
 
     };
   }
-
-  componentDidMount() {
-
-  }
-
+/**
+ * @description Render view.
+ * @returns {view}
+ */
   render() {
-
-
     return (
       <div>
         <Card>
