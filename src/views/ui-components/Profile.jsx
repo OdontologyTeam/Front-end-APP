@@ -60,6 +60,16 @@ export default class Search extends Component {
   // Metodo que remueve el evento por default del formulario
   handleSubmitForm = event => {
     event.preventDefault()
+
+    const { password } = this.state
+    const regularExpresion = /^[A-Z]*$/;
+    const isOkPassword = regularExpresion.test(password)
+
+    if(!isOkPassword){
+      return alert('Contraseña no cumple con los parametros minimos')
+    }
+
+    alert('Contraseña perfecta')
   }
 
   render() {
