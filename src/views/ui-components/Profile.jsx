@@ -23,23 +23,37 @@ import img8 from '../../assets/images/users/8.jpg';
 
 export default class Search extends Component {
   state = {
-    username: 'Maria',
+    username: 'Maral',
     email: 'user@yourdomail.com',
-    password: 'YourcurrentPassword',
-    confirmPassword: 'YourcurrentPassword'
+    password: '',
+    confirmPassword: ''
   }
 
-  handleChangeInput = event => {
-    const targetValue = event.target.value
+  handleChangeUser = event => {
     this.setState({
-      username: targetValue,
-      email: targetValue,
-      password: targetValue,
-      confirmPassword: targetValue
+      username: event.target.value,
     })
   }
 
-  handleSubmitInput = event => {
+  handleChangeEmail = event => {
+    this.setState({
+      email: event.target.value,
+    })
+  }
+
+  handleChangePassword = event => {
+    this.setState({
+      password: event.target.value,
+    })
+  }
+
+  handleChangeConfPassword = event => {
+    this.setState({
+      confirmPassword: event.target.value,
+    })
+  }
+
+  handleSubmitForm = event => {
     event.preventDefault()
   }
 
@@ -90,14 +104,14 @@ export default class Search extends Component {
               <Card>
                 <CardHeader tag="h5">Cambiar los datos de tu cuenta</CardHeader>
                 <CardBody>
-                  <Form onSubmit={this.handleSubmitInput}>
+                  <Form onSubmit={this.handleSubmitForm}>
                     <FormGroup>
                       <Label>Nombre</Label>
                       <Input 
                         type="next"   
                         name="username"
                         value={this.state.username} 
-                        onChange={this.handleChangeInput}
+                        onChange={this.handleChangeUser}
                       />
                     </FormGroup>
                     <FormGroup>
@@ -106,16 +120,16 @@ export default class Search extends Component {
                         type="email"   
                         name="email"
                         value={this.state.email} 
-                        onChange={this.handleChangeInput}
+                        onChange={this.handleChangeEmail}
                       />
                     </FormGroup>
                     <FormGroup>
                       <Label>Nueva contraseña</Label>
                       <Input 
-                        type="password"   
-                        name="password"
+                        type="password" 
+                        placeholder="Introducir nueva contraseña"
                         value={this.state.password} 
-                        onChange={this.handleChangeInput}
+                        onChange={this.handleChangePassword}
                       />
                     </FormGroup>
                     <FormGroup>
@@ -123,8 +137,9 @@ export default class Search extends Component {
                       <Input 
                         type="password"   
                         name="confirmPassword"
+                        placeholder="Confirmar la constraseña escrita anteriormente"
                         value={this.state.confirmPassword} 
-                        onChange={this.handleChangeInput}
+                        onChange={this.handleChangeConfPassword}
                       />
                     </FormGroup>
                   </Form>
