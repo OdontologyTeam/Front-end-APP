@@ -17,18 +17,22 @@ import {
   Input
 } from 'reactstrap';
 
-// Imagen
+// Imagenes
 import img7 from '../../assets/images/background/user-bg.jpg';
-import img8 from '../../assets/images/users/8.jpg';
+import img8 from '../../assets/images/users/maral.jpg';
 
 export default class Search extends Component {
   state = {
-    username: 'Maral',
+    // Estados del formulario
+    username: 'María Alejandra Manosalva',
     email: 'user@yourdomail.com',
     password: '',
     confirmPassword: ''
   }
 
+  /**
+   * Handlers para obtener los valores de cada Input
+   */
   handleChangeUser = event => {
     this.setState({
       username: event.target.value,
@@ -53,6 +57,7 @@ export default class Search extends Component {
     })
   }
 
+  // Metodo que remueve el evento por default del formulario
   handleSubmitForm = event => {
     event.preventDefault()
   }
@@ -90,10 +95,11 @@ export default class Search extends Component {
                             alt="Foto de perfil"
                             width={96}
                             height={96}
+                            style={{objectFit: "cover"}}
                           />
                         </Col>
                         <Col className="mt-2" sm={{ size: 'auto', offset: 1 }}> 
-                          <Button className="mb-3 btn" outline color="primary">Actualizar imagen de perfil</Button>
+                          <Button className="mb-3 btn" outline color="primary">Actualizar foto de perfil</Button>
                           <CardSubtitle>El formato debe ser JPEG, PNG.</CardSubtitle>
                         </Col>
                       </Row>
