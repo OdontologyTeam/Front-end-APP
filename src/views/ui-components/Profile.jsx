@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Swal from 'sweetalert2'
 import {
   Container,
   Card,
@@ -10,7 +11,6 @@ import {
   CardBody,
   CardTitle,
   CardHeader,
-  CardFooter,
   Form,
   FormGroup,
   Label,
@@ -62,11 +62,22 @@ export default class Search extends Component {
   handleSubmitForm = event => {
     event.preventDefault()
     const { password, confirmPassword } = this.state
-    if(password !== confirmPassword){
-      alert(`Passwords don't match`)
+    if(password !== '' && confirmPassword !== ''){
+      if(password !== confirmPassword){
+        Swal.fire({
+          title: '¡Oops!',
+          text: 'Las contraseñas no coinciden',
+          type: 'error',
+          confirmButtonText: 'Entendido'
+        })
+      }
     }
-    else{
-      alert('you got it')
+    else {
+      Swal.fire({
+        title: '¡Alto ahí!',
+        text: 'No puede dejar los campos de contraseñas vacios',
+        type: 'warning'
+      })
     }
   }
   
@@ -159,16 +170,15 @@ export default class Search extends Component {
                       />
                     </FormGroup>
                     <FormGroup>
-                      <Input
-                        type="submit"
-                        value="Save"
-                      />
+                      <Button 
+                        className="btn" 
+                        color="success"
+                      >
+                          success
+                      </Button>
                     </FormGroup>
                   </Form>
                 </CardBody>
-                <CardFooter className="text-muted">
-                  <Button onSubmit={this.handleSubmitForm}>Guardar cambios</Button>
-                </CardFooter>
               </Card>
             </Container>
           </CardBody>
