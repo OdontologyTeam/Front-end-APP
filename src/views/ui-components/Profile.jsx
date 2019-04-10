@@ -57,20 +57,20 @@ export default class Search extends Component {
     })
   }
 
+
   // Metodo que remueve el evento por default del formulario
   handleSubmitForm = event => {
     event.preventDefault()
-
-    const { password } = this.state
-    const regularExpresion = /^[A-Z]*$/;
-    const isOkPassword = regularExpresion.test(password)
-
-    if(!isOkPassword){
-      return alert('Contraseña no cumple con los parametros minimos')
+    const { password, confirmPassword } = this.state
+    if(password !== confirmPassword){
+      alert(`Passwords don't match`)
     }
-
-    alert('Contraseña perfecta')
+    else{
+      alert('you got it')
+    }
   }
+  
+  
 
   render() {
     return (
@@ -158,10 +158,16 @@ export default class Search extends Component {
                         onChange={this.handleChangeConfPassword}
                       />
                     </FormGroup>
+                    <FormGroup>
+                      <Input
+                        type="submit"
+                        value="Save"
+                      />
+                    </FormGroup>
                   </Form>
                 </CardBody>
                 <CardFooter className="text-muted">
-                  <Button>Guardar cambios</Button>
+                  <Button onSubmit={this.handleSubmitForm}>Guardar cambios</Button>
                 </CardFooter>
               </Card>
             </Container>
