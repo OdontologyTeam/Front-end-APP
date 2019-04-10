@@ -58,12 +58,16 @@ export default class Search extends Component {
   }
 
 
-  // Metodo que remueve el evento por default del formulario
+  // Metodo para Submit
   handleSubmitForm = event => {
+    // Elimina el evento por default
     event.preventDefault()
     const { password, confirmPassword } = this.state
+    // Verificar campos vacios
     if(password !== '' && confirmPassword !== ''){
+      // Sí la contraseña y la confirmación coinciden
       if(password !== confirmPassword){
+        // Sweet Alert 
         Swal.fire({
           title: '¡Oops!',
           text: 'Las contraseñas no coinciden',
@@ -73,6 +77,7 @@ export default class Search extends Component {
       }
     }
     else {
+      // Sweet Alert 
       Swal.fire({
         title: '¡Alto ahí!',
         text: 'No puede dejar los campos de contraseñas vacios',
@@ -84,6 +89,14 @@ export default class Search extends Component {
   
 
   render() {
+
+    const {
+      email,
+      username,
+      password,
+      confirmPassword
+    } = this.state
+
     return (
       <div>
         <Card>
@@ -137,7 +150,7 @@ export default class Search extends Component {
                       <Input 
                         type="next"   
                         name="username"
-                        value={this.state.username} 
+                        value={username} 
                         onChange={this.handleChangeUser}
                       />
                     </FormGroup>
@@ -146,7 +159,7 @@ export default class Search extends Component {
                       <Input 
                         type="email"   
                         name="email"
-                        value={this.state.email} 
+                        value={email} 
                         onChange={this.handleChangeEmail}
                       />
                     </FormGroup>
@@ -155,7 +168,7 @@ export default class Search extends Component {
                       <Input 
                         type="password" 
                         placeholder="Introducir nueva contraseña"
-                        value={this.state.password} 
+                        value={password} 
                         onChange={this.handleChangePassword}
                       />
                     </FormGroup>
@@ -165,7 +178,7 @@ export default class Search extends Component {
                         type="password"   
                         name="confirmPassword"
                         placeholder="Confirmar la constraseña escrita anteriormente"
-                        value={this.state.confirmPassword} 
+                        value={confirmPassword} 
                         onChange={this.handleChangeConfPassword}
                       />
                     </FormGroup>
