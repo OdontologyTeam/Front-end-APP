@@ -62,11 +62,16 @@ export default class Search extends Component {
   handleSubmitForm = event => {
     // Elimina el evento por default
     event.preventDefault()
-    const { password, confirmPassword } = this.state
+    const { email, 
+            username,
+            password,
+            confirmPassword 
+          } = this.state
+    
     // Verificar campos vacios
-    if(password !== '' && confirmPassword !== ''){
+    if(password !== '' && confirmPassword !== '' && email !== '' && username !== '') {
       // Sí la contraseña y la confirmación coinciden
-      if(password !== confirmPassword){
+      if(password !== confirmPassword) {
         // Sweet Alert 
         Swal.fire({
           title: '¡Oops!',
@@ -75,12 +80,18 @@ export default class Search extends Component {
           confirmButtonText: 'Entendido'
         })
       }
+      // Actualización exitosa
+      Swal.fire({
+        title: '¡Excelente!',
+        text: 'Tú perfil ha sido actualizado satisfactoriamente',
+        type: 'success'
+      })
     }
     else {
       // Sweet Alert 
       Swal.fire({
         title: '¡Alto ahí!',
-        text: 'No puede dejar los campos de contraseñas vacios',
+        text: 'No puedes dejar espacios vacios',
         type: 'warning'
       })
     }
@@ -187,7 +198,7 @@ export default class Search extends Component {
                         className="btn" 
                         color="success"
                       >
-                          success
+                          Guardar
                       </Button>
                     </FormGroup>
                   </Form>
