@@ -27,7 +27,8 @@ export default class Search extends Component {
     username: 'María Alejandra Manosalva',
     email: 'user@yourdomail.com',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    image: img8
   }
 
   /**
@@ -70,6 +71,12 @@ export default class Search extends Component {
     
     // Verificar campos vacios
     if(password !== '' && confirmPassword !== '' && email !== '' && username !== '') {
+      // Actualización exitosa
+      Swal.fire({
+        title: '¡Excelente!',
+        text: 'Tú perfil ha sido actualizado satisfactoriamente',
+        type: 'success'
+      }) 
       // Sí la contraseña y la confirmación coinciden
       if(password !== confirmPassword) {
         // Sweet Alert 
@@ -80,12 +87,6 @@ export default class Search extends Component {
           confirmButtonText: 'Entendido'
         })
       }
-      // Actualización exitosa
-      Swal.fire({
-        title: '¡Excelente!',
-        text: 'Tú perfil ha sido actualizado satisfactoriamente',
-        type: 'success'
-      })
     }
     else {
       // Sweet Alert 
@@ -97,10 +98,16 @@ export default class Search extends Component {
     }
   }
   
+  handleProfileImage = event => {
+    this.setState({
+      image: event.target.files[0]
+    })
+  }
   
-
   render() {
-
+    if(this.state.image !== null){
+      console.log(this.state.image.name)
+    }
     const {
       email,
       username,
@@ -136,7 +143,7 @@ export default class Search extends Component {
                         >
                           <img
                             sm={{ size: 'auto', offset: 1 }}
-                            src={img8}
+                            src={this.state.image.name}
                             alt="Foto de perfil"
                             width={96}
                             height={96}
@@ -144,7 +151,14 @@ export default class Search extends Component {
                           />
                         </Col>
                         <Col className="mt-2" sm={{ size: 'auto', offset: 1 }}> 
-                          <Button className="mb-3 btn" outline color="primary">Actualizar foto de perfil</Button>
+                          <div className="custom-file mb-3">
+                            <Input
+                              type="file"
+                              className="custom-file-input"
+                              onChange={this.handleProfileImage}
+                            />
+                            <label className="custom-file-label" >Escoger foto</label>
+                          </div>
                           <CardSubtitle>El formato debe ser JPEG, PNG.</CardSubtitle>
                         </Col>
                       </Row>
@@ -159,7 +173,7 @@ export default class Search extends Component {
                     <FormGroup>
                       <Label>Nombre</Label>
                       <Input 
-                        type="next"   
+                        type="text"   
                         name="username"
                         value={username} 
                         onChange={this.handleChangeUser}
