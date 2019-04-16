@@ -28,6 +28,7 @@ export default class Search extends Component {
     email: 'user@yourdomail.com',
     password: '',
     confirmPassword: '',
+    // Estados de img perfil
     image: '',
     imageUrl: ''
   }
@@ -100,24 +101,34 @@ export default class Search extends Component {
     }
   }
 
+  // Submit de la foto de perfil
   handleSubmitImage = event => {
     event.preventDefault()
     // TODO: Enviar imagen al backend
-    console.log(`handle uploading ${this.state.image}`)
+    console.log(`handle uploading ${this.state.image.name}`)
   }
   
+  // Obtener imagen y mostrar previsualización
   handleProfileImage = event => {
     event.preventDefault()
 
+    // FileReader permite leer archivos de manera asíncrona
     let reader = new FileReader()
+    // Evento que guarda un archivo
     let image = event.target.files[0]
 
+    // Controlador para evento que se activa cuando la carga se ha completado
     reader.onloadend = () => {
       this.setState({
         image,
+        /**
+         * @returns { object } contenido del archivo cargado
+         */
         imageUrl: reader.result
       })
     }
+
+    // Lectura del contenido del objeto Blob
     reader.readAsDataURL(image)
   }
   
@@ -130,7 +141,9 @@ export default class Search extends Component {
       imageUrl,
     } = this.state
 
+    // Preview de la imagen
     let $imagePreview = null
+    // Si está la imagen cargada mostrar la imagen sino mostrar la imagen actual
     if(imageUrl) {
       $imagePreview = (
         <img
@@ -183,21 +196,26 @@ export default class Search extends Component {
                           {$imagePreview}
                         </Col>
                         <Col className="mt-2" sm={{ size: 'auto', offset: 1 }}> 
-                          {
-                            // TODO: convertir esto en formulario y pasar evento de submit
-                          }
-                          <div className="custom-file mb-3">
+                          <Form 
+                            className="custom-file mb-3"
+                            onSubmit={this.handleSubmitImage}
+                          >
                             <Input
                               type="file"
                               className="custom-file-input"
                               onChange={this.handleProfileImage}
                             />
                             <label className="custom-file-label" >Escoger foto</label>
-                          </div>
+                          </Form>
                           <CardSubtitle>El formato debe ser JPEG, PNG.</CardSubtitle>
-                          {
-                            //TODO: Crear boton para subir la data al backend y pasar evento submit
-                          }
+                          <Button 
+                            className="btn" 
+                            outline 
+                            color="success"
+                            onClick={this.handleSubmitImage}
+                          >
+                            Actualizar
+                          </Button>
                         </Col>
                       </Row>
                     </Col>
