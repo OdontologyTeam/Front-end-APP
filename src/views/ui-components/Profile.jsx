@@ -28,7 +28,8 @@ export default class Search extends Component {
     email: 'user@yourdomail.com',
     password: '',
     confirmPassword: '',
-    image: img8
+    image: '',
+    imageUrl: ''
   }
 
   /**
@@ -63,11 +64,12 @@ export default class Search extends Component {
   handleSubmitForm = event => {
     // Elimina el evento por default
     event.preventDefault()
-    const { email, 
-            username,
-            password,
-            confirmPassword 
-          } = this.state
+    const { 
+      email, 
+      username,
+      password,
+      confirmPassword 
+    } = this.state
     
     // Verificar campos vacios
     if(password !== '' && confirmPassword !== '' && email !== '' && username !== '') {
@@ -97,23 +99,60 @@ export default class Search extends Component {
       })
     }
   }
+
+  handleSubmitImage = event => {
+    event.preventDefault()
+    // TODO: Enviar imagen al backend
+    console.log(`handle uploading ${this.state.image}`)
+  }
   
   handleProfileImage = event => {
-    this.setState({
-      image: event.target.files[0]
-    })
+    event.preventDefault()
+
+    let reader = new FileReader()
+    let image = event.target.files[0]
+
+    reader.onloadend = () => {
+      this.setState({
+        image,
+        imageUrl: reader.result
+      })
+    }
+    reader.readAsDataURL(image)
   }
   
   render() {
-    if(this.state.image !== null){
-      console.log(this.state.image.name)
-    }
-    const {
+    let {
       email,
       username,
       password,
-      confirmPassword
+      confirmPassword,
+      imageUrl,
     } = this.state
+
+    let $imagePreview = null
+    if(imageUrl) {
+      $imagePreview = (
+        <img
+          src={imageUrl}
+          alt=''
+          width={96}
+          height={96}
+          style={{objectFit: "cover"}}
+        />
+      )
+    }
+    else {
+      $imagePreview = (
+        <img
+          src={img8}
+          alt=''
+          width={96}
+          height={96}
+          style={{objectFit: "cover"}}
+        />
+      )
+    }
 
     return (
       <div>
@@ -141,16 +180,12 @@ export default class Search extends Component {
                           sm={{ size: 'auto', offset: 1 }}
                           style={{marginLeft: 0}}
                         >
-                          <img
-                            sm={{ size: 'auto', offset: 1 }}
-                            src={this.state.image.name}
-                            alt="Foto de perfil"
-                            width={96}
-                            height={96}
-                            style={{objectFit: "cover"}}
-                          />
+                          {$imagePreview}
                         </Col>
                         <Col className="mt-2" sm={{ size: 'auto', offset: 1 }}> 
+                          {
+                            // TODO: convertir esto en formulario y pasar evento de submit
+                          }
                           <div className="custom-file mb-3">
                             <Input
                               type="file"
@@ -160,6 +195,9 @@ export default class Search extends Component {
                             <label className="custom-file-label" >Escoger foto</label>
                           </div>
                           <CardSubtitle>El formato debe ser JPEG, PNG.</CardSubtitle>
+                          {
+                            //TODO: Crear boton para subir la data al backend y pasar evento submit
+                          }
                         </Col>
                       </Row>
                     </Col>
