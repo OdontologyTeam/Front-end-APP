@@ -11,7 +11,7 @@ import {
 	DropdownMenu
 } from 'reactstrap';
 
-import profilephoto from '../../assets/images/users/8.jpg';
+import profilephoto from '../../assets/images/users/maral.jpg';
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
@@ -90,6 +90,8 @@ class Header extends React.Component {
 										alt="user"
 										className="rounded-circle"
 										width="31"
+										height="31"
+										style={{objectFit: "cover"}}
 									/>
 								</DropdownToggle>
 								<DropdownMenu right className="user-dd">
