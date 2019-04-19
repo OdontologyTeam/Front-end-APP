@@ -11,7 +11,7 @@ import TooltipComponent from '../views/ui-components/tooltip.jsx';
 // Componentes
 import Search from '../views/ui-components/search'
 import GeneralStory from '../views/ui-components/GeneralStory'
-import CompleteStory from '../views/ui-components/CompleteStory'
+import EndodonticsStory from '../views/ui-components/EndodonticsStory'
 import Profile from '../views/ui-components/Profile'
 
 let ThemeRoutes = [
@@ -28,10 +28,10 @@ let ThemeRoutes = [
     component: GeneralStory
   },
   {
-    path: '/crear-historia-completa',
-    name: 'Crear Historia Completa',
+    path: '/crear-historia-endodoncia',
+    name: 'Crear Historia Endodoncia',
     icon: 'mdi mdi-priority-high',
-    component: CompleteStory
+    component: EndodonticsStory
   },
   {
     path: '/ajustes-de-perfil',
