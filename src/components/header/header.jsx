@@ -17,9 +17,9 @@ import { Link } from 'react-router-dom'
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
 /*--------------------------------------------------------------------------------*/
-import logodarkicon from '../../assets/images/logo-icon.png';
+import logodarkicon from '../../assets/images/maral-logo.jpg';
 import logolighticon from '../../assets/images/logo-light-icon.png';
-import logodarktext from '../../assets/images/logo-text.png';
+import logodarktext from '../../assets/images/maral-text-logo.jpg';
 import logolighttext from '../../assets/images/logo-light-text.png';
 
 class Header extends React.Component {
@@ -55,8 +55,17 @@ class Header extends React.Component {
 	render() {
 		return (
 			<header className="topbar navbarbg" data-navbarbg="skin1">
-				<Navbar className="top-navbar" dark expand="md">
-					<div className="navbar-header" id="logobg" data-logobg="skin6">
+				<Navbar 
+					className="top-navbar" 
+					dark 
+					expand="md"
+				>
+					<div 
+						className="navbar-header" 
+						id="logobg" 
+						data-logobg="skin6" 
+						style={{backgroundColor: 'black'}}
+					>
 						{/*--------------------------------------------------------------------------------*/}
 						{/* Logos Or Icon will be goes here for Light Layout && Dark Layout                */}
 						{/*--------------------------------------------------------------------------------*/}
@@ -85,7 +94,7 @@ class Header extends React.Component {
 							<i className="ti-menu ti-close" />
 						</a>
 					</div>
-					<Collapse className="navbarbg" isOpen={this.state.isOpen} navbar data-navbarbg="skin1" >
+					<Collapse className="navbarbg" isOpen={this.state.isOpen} navbar data-navbarbg="skin1" style={{backgroundColor: 'black'}} >
 						<Nav className="ml-auto float-right" navbar>
 							{/*--------------------------------------------------------------------------------*/}
 							{/* Start Profile Dropdown                                                         */}
