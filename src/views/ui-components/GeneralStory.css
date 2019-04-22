@@ -1,0 +1,59 @@
+.pdbd{
+    border-radius: 10px!important;
+    
+}
+input[type="text"],input[type="number"],input[type="select"],input[type="date"]{
+    border-radius: 10px!important;
+    background: #fff!important;
+}
+label{
+    color: #2962FF;
+}
+
+.areaLimitHeight{
+    max-height: 250px;
+}
+tbody tr:hover{
+    background:  rgba(61, 85, 223, .5);
+}
+thead th {
+    color: #2962FF;
+    text-align: center;
+}
+table,tr,td,th{
+    border: 2px solid #000!important;
+}
+p{
+    line-height: 40px;
+    text-align: justify;
+    
+}
+.contenedor_firma{
+    text-align: center;
+    border-bottom: 1px solid #000;
+    width: 100%;
+}
+.contenedor_huella{
+   text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    
+    
+   
+}
+.contenedor_logo{
+    text-align: center;
+    width: 100%;
+}
+#img_logo{
+    width: 100%;
+}
+#img_huella{
+    width: 25%;
+    border: 1px solid #000;
+    border-radius: 5px;
+    vertical-align: top;
+}
+#img_firma{
+    width: 50%;
+}
