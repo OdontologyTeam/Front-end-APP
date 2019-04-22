@@ -13,6 +13,7 @@ import Search from '../views/ui-components/search'
 import GeneralStory from '../views/ui-components/GeneralStory'
 import EndodonticsStory from '../views/ui-components/EndodonticsStory'
 import Profile from '../views/ui-components/Profile'
+import InfConsent from '../views/ui-components/infConsent'
 
 let ThemeRoutes = [
   {
@@ -32,6 +33,12 @@ let ThemeRoutes = [
     name: 'Crear Historia Endodoncia',
     icon: 'mdi mdi-priority-high',
     component: EndodonticsStory
+  },
+  {
+    path: '/crear-consentimiento-endodoncia',
+    name: 'Crear Consentimiento',
+    icon: 'mdi mdi-comment-processing-outline',
+    component: InfConsent
   },
   {
     path: '/ajustes-de-perfil',
