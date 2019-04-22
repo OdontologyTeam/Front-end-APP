@@ -11,14 +11,15 @@ import {
 	DropdownMenu
 } from 'reactstrap';
 
-import profilephoto from '../../assets/images/users/8.jpg';
+import profilephoto from '../../assets/images/users/maral.jpg';
+import { Link } from 'react-router-dom'
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
 /*--------------------------------------------------------------------------------*/
-import logodarkicon from '../../assets/images/logo-icon.png';
+import logodarkicon from '../../assets/images/maral-logo.jpg';
 import logolighticon from '../../assets/images/logo-light-icon.png';
-import logodarktext from '../../assets/images/logo-text.png';
+import logodarktext from '../../assets/images/maral-text-logo.jpg';
 import logolighttext from '../../assets/images/logo-light-text.png';
 
 class Header extends React.Component {
@@ -45,11 +46,26 @@ class Header extends React.Component {
 		document.getElementById('main-wrapper').classList.toggle('show-sidebar');
 	}
 
+	// Cerrar Sesión	
+	handleClickLogout = event => {
+		// TODO: Crear la lógica para cerrar sesión 
+		console.log('loged out')
+	}
+
 	render() {
 		return (
 			<header className="topbar navbarbg" data-navbarbg="skin1">
-				<Navbar className="top-navbar" dark expand="md">
-					<div className="navbar-header" id="logobg" data-logobg="skin6">
+				<Navbar 
+					className="top-navbar" 
+					dark 
+					expand="md"
+				>
+					<div 
+						className="navbar-header" 
+						id="logobg" 
+						data-logobg="skin6" 
+						style={{backgroundColor: 'black'}}
+					>
 						{/*--------------------------------------------------------------------------------*/}
 						{/* Logos Or Icon will be goes here for Light Layout && Dark Layout                */}
 						{/*--------------------------------------------------------------------------------*/}
@@ -78,7 +94,7 @@ class Header extends React.Component {
 							<i className="ti-menu ti-close" />
 						</a>
 					</div>
-					<Collapse className="navbarbg" isOpen={this.state.isOpen} navbar data-navbarbg="skin1" >
+					<Collapse className="navbarbg" isOpen={this.state.isOpen} navbar data-navbarbg="skin1" style={{backgroundColor: 'black'}} >
 						<Nav className="ml-auto float-right" navbar>
 							{/*--------------------------------------------------------------------------------*/}
 							{/* Start Profile Dropdown                                                         */}
@@ -90,22 +106,37 @@ class Header extends React.Component {
 										alt="user"
 										className="rounded-circle"
 										width="31"
+										height="31"
+										style={{objectFit: "cover"}}
 									/>
 								</DropdownToggle>
 								<DropdownMenu right className="user-dd">
 									<DropdownItem>
-										<i className="ti-settings mr-1 ml-1" /> Ajustes de cuenta
+										<Link 
+											to="/ajustes-de-perfil"
+											className="text-dark"
+										>
+											<i className="ti-settings mr-1 ml-1" /> Ajustes de cuenta
+										</Link>
                   </DropdownItem>
 									<DropdownItem divider />
-									<DropdownItem href="/pages/login">
-										<i className="fa fa-power-off mr-1 ml-1" /> Cerrar Sesión
-                  </DropdownItem>
-									<DropdownItem divider />
-									<Button
-										color="success"
-										className="btn-rounded ml-3 mb-2 mt-2"
+									{
+										/**
+										 * TODO: Cambiar link por el de la landing page
+										 */
+									}
+									<DropdownItem
+										href="https://www.google.com"
+										className="text-dark"
 									>
-										Ver Perfil
+										<i className="fas fa-external-link-alt mr-1 ml-1"/> Ir a sitio principal
+									</DropdownItem>
+									<Button
+										color="danger"
+										className="btn-rounded ml-3 mb-2 mt-2"
+										onClick={this.handleClickLogout}
+									>
+										<i className="fa fa-power-off mr-1 ml-1" /> Cerrar Sesión
                   </Button>
 								</DropdownMenu>
 							</UncontrolledDropdown>
