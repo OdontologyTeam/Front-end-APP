@@ -2,7 +2,7 @@
     border-radius: 10px!important;
     
 }
-input[type="text"],input[type="number"],input[type="select"],input[type="date"]{
+input[type="text"],input[type="number"],input[type="select"],input[type="date"],input[type="time"],input[type="textarea"] {
     border-radius: 10px!important;
     background: #fff!important;
 }
@@ -11,6 +11,7 @@ label{
 }
 
 .areaLimitHeight{
+    min-height: 80px;
     max-height: 250px;
 }
 tbody tr:hover{
@@ -37,9 +38,6 @@ p{
    text-align: center;
     width: 100%;
     border-radius: 5px;
-    
-    
-   
 }
 .contenedor_logo{
     text-align: center;
@@ -49,10 +47,11 @@ p{
     width: 100%;
 }
 #img_huella{
-    width: 25%;
+    width: 40%;
     border: 1px solid #000;
     border-radius: 5px;
     vertical-align: top;
+    padding: 4px;
 }
 #img_firma{
     width: 50%;

@@ -6,22 +6,26 @@ import {
   CardTitle
 } from 'reactstrap';
 
+import CmpGeneralStory from './GeneralStory'
+import GeneralStory from './GeneralStory';
+import CmpProcedimiento from './Procedimiento'
 export default class Search extends Component {
   render() {
     return (
       <div>
+        <GeneralStory tipo="Historia Endodoncia"/>
         <Card>
           <CardBody>
             <CardTitle
               className="mb-0"
             >
-              <i className="mdi mdi-priority-high mr-2" ></i>
-              Crear Historia Completa
+              <i className="mdi mdi-arrange-send-backward mr-2" ></i>
+              Procedimiento
             </CardTitle>
           </CardBody>
           <CardBody className="border-top">
             <Container>
-              Hello World
+              <CmpProcedimiento/>   
             </Container>
           </CardBody>
         </Card>

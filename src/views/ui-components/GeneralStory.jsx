@@ -16,7 +16,8 @@ import {
   Jumbotron,
   Table
 } from 'reactstrap';
-
+import CmpConsentimientoInformado from './ConsentimientoInformado'  //Importamos Componente de Consentimiento Informado
+import CmpProcedimiento from './Procedimiento' // Importamos Componente para Procedimientos
 export default class GeneralStory extends Component {
   state={
     itemMedicos:[],
@@ -92,7 +93,7 @@ export default class GeneralStory extends Component {
               className="mb-0"
             >
               <i className="mdi mdi-arrange-send-backward mr-2" ></i>
-              Crear Historia General
+              {this.props.tipo || 'Historia Clinica General'}
             </CardTitle>
           </CardBody>
           <CardBody className="border-top">
@@ -112,7 +113,9 @@ export default class GeneralStory extends Component {
               
               <Form>
                 <Jumbotron>
-                  <h2 className="mb-4">Datos Personales</h2>
+               
+                  <h2 className="d-none d-sm-block">Datos Personales</h2>
+                  <h3 className="d-sm-none">Datos Personales</h3>
                  <FormGroup>
                    <Row form>
                       <Col md={4}>
@@ -123,7 +126,7 @@ export default class GeneralStory extends Component {
                         <Label for="cedula_id">Cedula</Label>
                         <Input type="number" name="cedula" id="cedula_id"/>
                       </Col>
-                      <Col md={4}>
+                      <Col md={4}> 
                         <Label for="id_lugarExpedicion">Lugar Expedición</Label>
                         <Input type="select"  className="pdbd" name="lugar_expedicion" id="id_lugarExpedicion" />
                       </Col>
@@ -159,7 +162,8 @@ export default class GeneralStory extends Component {
                  </FormGroup>
                 </Jumbotron>
                 <Jumbotron>
-                  <h2 className="mb-4">Antecedentes Médicos y Odontológicos</h2>
+                  <h2 className="d-none d-sm-block">Antecedentes Médicos y Odontológicos</h2>
+                  <h3 className="d-sm-none">Antecedentes Médicos y Odontológicos</h3>
                   <FormGroup>
                     <Row form>
                         <Col md={6}>
@@ -206,7 +210,8 @@ export default class GeneralStory extends Component {
                   </FormGroup>
                 </Jumbotron>
                 <Jumbotron>
-                  <h2 className="mb-4">Odontograma</h2>
+                  <h2 className="d-none d-sm-block">Odontograma</h2>
+                  <h3 className="d-sm-none">Odontograma</h3>
                   <FormGroup>
                     <Row form>
                       <Col md={6}>
@@ -223,7 +228,8 @@ export default class GeneralStory extends Component {
                   </FormGroup>
                 </Jumbotron>
                 <Jumbotron>
-                  <h2 className="mb-4">Estado de Cuenta y Evolución</h2>
+                  <h2 className="d-none d-sm-block">Estado de Cuenta y Evolución</h2>
+                  <h3 className="d-sm-none">Estado de Cuenta y Evolución</h3>
                   <FormGroup>
                     <div className="table-responsive">
                       <Table bordered>
@@ -275,69 +281,16 @@ export default class GeneralStory extends Component {
                   </div>
                   </FormGroup>
                 </Jumbotron>
-                <Jumbotron>
-                  <h2 className="mb-4">Consentimiento Informado</h2>
-                  <FormGroup>
-                    <Row form>
-                      <Col md={6} className="d-flex  justify-content-start align-items-center" >
-                            <Label for="fconsentimiento_id">Fecha</Label>
-                          <Col md={5}>
-                            <Input  type="date" name="fconsentimiento" id="fconsentimiento_id"/>
-                          </Col>
-                      </Col>
-                      <Col md={12}>
-                        <p>Por medio de la presente doy mi consentimiento para formular y realizar los
-                            tratamientos necesarios y demás procedimientos dentales que se consideren
-                            necesarios y se hayan acordado.
-                            Estoy informado de los riesgos implícitos en los procedimientos clínicos, sus
-                            posibles complicaciones y eximo al profesional de cualquier eventualidad que
-                            se presente.
-                            Estoy informado que todos los tratamientos realizados tienen cuidados de parte
-                            mía y que debo asistir a controles cada 4 meses para mantener mi salud bucal
-                            y cuidar de los trabajos realizados.
-                        </p>
-                      </Col>
-                      <Col md={12} className="d-flex mb-4 justify-content-start align-items-center">
-                        <Col md={6}>
-                          <Label for="nombre_consentimiento_id">Nombre</Label>
-                          <Input  type="text" name="nombre_consentimiento" id="nombre_consentimiento_id"/>
-                        </Col>
-                      </Col>
-                      <Col md={12}  className="d-flex mb-4 justify-content-end align-items-center">
-                          <Col md={6}>
-                            <Label for="img_firma">Firma</Label>
-                            <div className="contenedor_firma">
-                              <img src="./firma.png" alt=""  id="img_firma"/>
-                            </div>
-                          </Col>
-                           
-                           <div className="contenedor_huella">
-                            <img src="./huella.png" alt=""  id="img_huella"/>
-                           </div>
-                      </Col>
-                      <Col md={12} className="d-flex mb-4 justify-content-start align-items-center">
-                        <Col md={6}>
-                          <Label for="cedula_consentimiento_id">C.C</Label>
-                          <Input type="number" name="cedula_consentimiento" id="cedula_consentimiento_id"/>
-                        </Col>
-                      </Col>
-                      <Col md={12} className="d-flex mb-4 justify-content-start align-items-center">
-                        <Col md={6}>
-                          <Label for="nombre_odontologo_id">Odontólogo/a</Label>
-                          <Input  type="text" name="nombre_odontologo" id="nombre_odontologo_id"/>
-                        </Col>
-                      </Col>
-                      
-                    </Row>
-                  </FormGroup>
-                </Jumbotron>
+                <CmpConsentimientoInformado/>
               </Form>
               <Row>
                 <Col md={12} className="text-center">
                   <h3><span className="font-weight-bold">Dirección:</span> Calle 43 #29-13 Edificio Tempo II, con 201</h3>
                   <h3><span className="font-weight-bold">Celular y WhatsApp:</span> 3022424742</h3>
                 </Col>
+                
               </Row>
+              
             </Container>
           </CardBody>
         </Card>
